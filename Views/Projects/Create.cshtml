@@ -1,0 +1,37 @@
+@model GorevYonetimSistemi.Models.Project
+
+@{
+    ViewData["Title"] = "Yeni Proje";
+}
+
+<div class="container mt-4">
+
+    <h2>Yeni Proje</h2>
+
+    <form asp-controller="Projects"
+          asp-action="Create"
+          method="post">
+
+        <div class="mb-3">
+            <label>Proje Adı</label>
+            <input asp-for="Name" class="form-control" />
+        </div>
+
+        <div class="mb-3">
+            <label>Açıklama</label>
+            <textarea asp-for="Description"
+                      class="form-control"
+                      rows="4"></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-success">
+            Kaydet
+        </button>
+
+        <a asp-action="Index" class="btn btn-secondary">
+            İptal
+        </a>
+
+    </form>
+
+</div>

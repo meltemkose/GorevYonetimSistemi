@@ -1,0 +1,44 @@
+@model GorevYonetimSistemi.Models.User
+
+@{
+    ViewData["Title"] = "Yeni Kullanıcı";
+}
+
+<div class="container mt-4">
+
+    <h2>Yeni Kullanıcı</h2>
+
+    <form asp-controller="Users" asp-action="Create" method="post">
+
+        <div class="mb-3">
+            <label>Ad</label>
+         <input asp-for="Name" class="form-control" />
+        </div>
+
+        <div class="mb-3">
+            <label>Soyad</label>
+            <input asp-for="Surname" class="form-control" />
+        </div>
+
+        <div class="mb-3">
+            <label>E-posta</label>
+            <input asp-for="Email" class="form-control" />
+        </div>
+
+        <div class="mb-3">
+            <label>Şifre</label>
+            <input asp-for="Password" type="password" class="form-control" />
+        </div>
+
+        <div class="mb-3">
+            <label>Rol</label>
+            <input asp-for="Role" class="form-control" />
+        </div>
+
+        <button type="submit" class="btn btn-success">
+            Kaydet
+        </button>
+
+    </form>
+
+</div>

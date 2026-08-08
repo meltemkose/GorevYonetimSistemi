@@ -19,6 +19,21 @@ namespace GorevYonetimSistemi.Controllers
 
     return View(projects);
  }
+ public async Task<IActionResult> Details(int id)
+{
+    var project = await _context.Projects.FindAsync(id);
+
+    if (project == null)
+    {
+        return NotFound();
+    }
+
+    ViewBag.Tasks = await _context.Tasks
+        .Where(t => t.ProjectId == id)
+        .ToListAsync();
+
+    return View(project);
+}
  public IActionResult Create()
 {
     return View();

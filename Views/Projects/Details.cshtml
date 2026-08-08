@@ -1,0 +1,47 @@
+@model GorevYonetimSistemi.Models.Project
+
+@{
+    ViewData["Title"] = "Proje Detayı";
+}
+
+<h2>Proje Detayı</h2>
+
+<div class="card mt-3">
+    <div class="card-body">
+        <h4>@Model.Name</h4>
+
+        <p>
+            <strong>Açıklama:</strong>
+            @Model.Description
+        </p>
+
+        <p>
+            <strong>Oluşturulma Tarihi:</strong>
+            @Model.CreatedDate.ToShortDateString()
+        </p>
+    </div>
+</div>
+
+<h3 class="mt-4">Projeye Ait Görevler</h3>
+
+<table class="table table-bordered mt-3">
+    <thead>
+        <tr>
+            <th>Görev</th>
+            <th>Durum</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var task in ViewBag.Tasks)
+        {
+            <tr>
+                <td>@task.Title</td>
+                <td>@task.Status</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a asp-action="Index" class="btn btn-secondary">
+    Projelere Dön
+</a>

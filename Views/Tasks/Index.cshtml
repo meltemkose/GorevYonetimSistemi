@@ -7,7 +7,44 @@
     <a asp-action="Create" class="btn btn-primary mb-3">
         Yeni Görev
     </a>
+<form asp-action="Index" method="get" class="mb-3">
+    <div class="row">
+        <div class="col-md-6">
+             <input type="text"
+       name="searchString"
+       value="@Context.Request.Query["searchString"]"
+       class="form-control"
+       placeholder="Görev ara..." />
+        </div>
 
+        <div class="col-md-4">
+            <select name="status" class="form-control">
+    <option value="">Tüm Durumlar</option>
+
+    <option value="Bekliyor"
+            selected="@(Context.Request.Query["status"] == "Bekliyor" ? "selected" : null)">
+        Bekliyor
+    </option>
+
+    <option value="Devam Ediyor"
+            selected="@(Context.Request.Query["status"] == "Devam Ediyor" ? "selected" : null)">
+        Devam Ediyor
+    </option>
+
+    <option value="Tamamlandı"
+            selected="@(Context.Request.Query["status"] == "Tamamlandı" ? "selected" : null)">
+        Tamamlandı
+    </option>
+</select>
+        </div>
+
+        <div class="col-md-2">
+            <button type="submit" class="btn btn-primary">
+                Filtrele
+            </button>
+        </div>
+    </div>
+</form>
     <table class="table table-bordered">
 
         <thead>

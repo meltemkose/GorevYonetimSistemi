@@ -14,11 +14,21 @@ namespace GorevYonetimSistemi.Controllers
         {
             _context = context;
         }
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string searchString, string status)
 {
-    var tasks = await _context.Tasks.ToListAsync();
+    var tasks = _context.Tasks.AsQueryable();
 
-    return View(tasks);
+    if (!string.IsNullOrEmpty(searchString))
+    {
+        tasks = tasks.Where(t => t.Title.Contains(searchString));
+    }
+
+    if (!string.IsNullOrEmpty(status))
+    {
+        tasks = tasks.Where(t => t.Status == status);
+    }
+
+    return View(await tasks.ToListAsync());
 }
 public async Task<IActionResult> Create()
 {

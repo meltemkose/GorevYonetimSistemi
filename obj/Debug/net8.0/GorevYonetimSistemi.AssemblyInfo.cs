@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("GorevYonetimSistemi")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+fa88dc9cfa3a883988bbd0bc10034e97cf4a4441")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+918e7812b19d3ab0aed4880373404b50f6788149")]
 [assembly: System.Reflection.AssemblyProductAttribute("GorevYonetimSistemi")]
 [assembly: System.Reflection.AssemblyTitleAttribute("GorevYonetimSistemi")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

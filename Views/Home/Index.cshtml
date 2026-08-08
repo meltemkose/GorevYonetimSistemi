@@ -1,8 +1,55 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Dashboard";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="container mt-4">
+    <h2 class="mb-4">Görev Yönetim Paneli</h2>
+
+    <div class="row g-3">
+
+        <div class="col-md-3">
+            <div class="card text-bg-primary">
+                <div class="card-body">
+                    <h5 class="card-title">Toplam Görev</h5>
+                    <h2>@ViewBag.TotalTasks</h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card text-bg-secondary">
+                <div class="card-body">
+                    <h5 class="card-title">Bekliyor</h5>
+                    <h2>@ViewBag.PendingTasks</h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card text-bg-warning">
+                <div class="card-body">
+                    <h5 class="card-title">Devam Ediyor</h5>
+                    <h2>@ViewBag.InProgressTasks</h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card text-bg-success">
+                <div class="card-body">
+                    <h5 class="card-title">Tamamlandı</h5>
+                    <h2>@ViewBag.CompletedTasks</h2>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="mt-4">
+        <a asp-controller="Tasks"
+           asp-action="Index"
+           class="btn btn-primary">
+            Görevleri Görüntüle
+        </a>
+    </div>
 </div>

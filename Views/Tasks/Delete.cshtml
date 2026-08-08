@@ -1,0 +1,41 @@
+@model GorevYonetimSistemi.Models.TaskItem
+
+<div class="container mt-4">
+    <h2>Görevi Sil</h2>
+
+    <div class="alert alert-warning">
+        Bu görevi silmek istediğinize emin misiniz?
+    </div>
+
+    <div class="mb-3">
+        <strong>Başlık:</strong>
+        @Model.Title
+    </div>
+
+    <div class="mb-3">
+        <strong>Açıklama:</strong>
+        @Model.Description
+    </div>
+
+    <div class="mb-3">
+        <strong>Durum:</strong>
+        @Model.Status
+    </div>
+
+    <div class="mb-3">
+        <strong>Teslim Tarihi:</strong>
+        @Model.Deadline.ToShortDateString()
+    </div>
+
+    <form asp-action="Delete" method="post">
+        <input type="hidden" asp-for="Id" />
+
+        <button type="submit" class="btn btn-danger">
+            Sil
+        </button>
+
+        <a asp-action="Index" class="btn btn-secondary">
+            İptal
+        </a>
+    </form>
+</div>

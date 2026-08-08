@@ -91,5 +91,30 @@ public async Task<IActionResult> Edit(TaskItem task)
 
     return RedirectToAction(nameof(Index));
 }
+public async Task<IActionResult> Delete(int id)
+{
+    var task = await _context.Tasks.FindAsync(id);
+
+    if (task == null)
+    {
+        return NotFound();
+    }
+
+    return View(task);
+}
+
+[HttpPost, ActionName("Delete")]
+public async Task<IActionResult> DeleteConfirmed(int id)
+{
+    var task = await _context.Tasks.FindAsync(id);
+
+    if (task != null)
+    {
+        _context.Tasks.Remove(task);
+        await _context.SaveChangesAsync();
+    }
+
+    return RedirectToAction(nameof(Index));
+}
     }
 }

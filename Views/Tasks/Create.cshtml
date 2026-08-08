@@ -17,9 +17,13 @@
         </div>
 
         <div class="mb-3">
-            <label>Durum</label>
-            <input asp-for="Status" class="form-control" />
-        </div>
+    <label>Durum</label>
+    <select asp-for="Status" class="form-control">
+        <option value="Bekliyor">Bekliyor</option>
+        <option value="Devam Ediyor">Devam Ediyor</option>
+        <option value="Tamamlandı">Tamamlandı</option>
+    </select>
+</div>
 
         <div class="mb-3">
             <label>Teslim Tarihi</label>
